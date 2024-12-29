@@ -86,9 +86,9 @@ const SocialLink = styled.a`
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    from_name: 'name',
-    email: 'email',
-    message: 'message',
+    from_name: '',
+    email: '',
+    message: '',
   });
 
   const handleInputChange = (e) => {
@@ -119,7 +119,7 @@ const Contact = () => {
             </Icon>
             <Input
               type="text"
-              name="name" 
+              name="from_name" 
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Seu Nome"
