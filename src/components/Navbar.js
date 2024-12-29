@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.svg';
 
 const Header = styled.header`
   position: fixed;
@@ -49,8 +50,21 @@ const NavLinks = styled.nav`
 `;
 
 const Logo = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: auto;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+
+  span {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 `;
 
 const BurgerMenu = styled.div`
@@ -77,7 +91,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Logo>Meu Logo</Logo>
+      <Logo>
+        <img src={logo} alt="Logo" />
+      </Logo>
       <BurgerMenu onClick={toggleMenu}>
         ☰
       </BurgerMenu>
