@@ -37,12 +37,12 @@ const Hero = () => {
             >
                 Transforme sua ideia em realidade.
             </Subtitle>
-            <motion.button
+            <a href="#contato"><motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
             >
                 Contrate-me
-            </motion.button>
+            </motion.button></a>
         </HeroSection>
     );
 };
