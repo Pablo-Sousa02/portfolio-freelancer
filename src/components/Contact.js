@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaInstagram, FaWhatsapp, FaLinkedin, FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa'; // Importando os ícones corretamente
+import { FaInstagram, FaWhatsapp, FaLinkedin, FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const ContactSection = styled.section`
   padding: 50px;
@@ -84,47 +85,87 @@ const SocialLink = styled.a`
 `;
 
 const Contact = () => {
-    return (
-        <div>
-            <ContactSection id = "contato">
-                <h2>Entre em Contato</h2>
-                <Form>
-                    <InputWrapper>
-                        <Icon>
-                            <FaUser />
-                        </Icon>
-                        <Input type="text" placeholder="Seu Nome" />
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Icon>
-                            <FaEnvelope />
-                        </Icon>
-                        <Input type="email" placeholder="Seu Email" />
-                    </InputWrapper>
-                    <TextAreaWrapper>
-                        <Icon>
-                            <FaPaperPlane />
-                        </Icon>
-                        <TextArea rows="5" placeholder="Sua Mensagem"></TextArea>
-                    </TextAreaWrapper>
-                    <button type="submit">Enviar</button>
-                </Form>
-            </ContactSection>
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-            {/* Seção de links com ícones */}
-            <SocialLinksSection>
-                <SocialLink href="https://www.instagram.com" target="_blank">
-                    <FaInstagram />
-                </SocialLink>
-                <SocialLink href="https://wa.me" target="_blank">
-                    <FaWhatsapp />
-                </SocialLink>
-                <SocialLink href="https://www.linkedin.com" target="_blank">
-                    <FaLinkedin />
-                </SocialLink>
-            </SocialLinksSection>
-        </div>
-    );
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_049qcq2', 'template_03y3c7o', e.target, 'bloOASXlIbynI1PdA')
+      .then((result) => {
+          alert('Mensagem enviada com sucesso!');
+          setFormData({ name: '', email: '', message: '' });
+      }, (error) => {
+          alert('Erro ao enviar a mensagem:', error.text);
+      });
+  };
+
+  return (
+    <div>
+      <ContactSection id="contato">
+        <h2>Entre em Contato</h2>
+        <Form onSubmit={handleSubmit}>
+          <InputWrapper>
+            <Icon>
+              <FaUser />
+            </Icon>
+            <Input
+              type="text"
+              name="name" 
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Seu Nome"
+            />
+          </InputWrapper>
+          <InputWrapper>
+            <Icon>
+              <FaEnvelope />
+            </Icon>
+            <Input
+              type="email"
+              name="email" 
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Seu Email"
+            />
+          </InputWrapper>
+          <TextAreaWrapper>
+            <Icon>
+              <FaPaperPlane />
+            </Icon>
+            <TextArea
+              rows="5"
+              name="message" 
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Sua Mensagem"
+            ></TextArea>
+          </TextAreaWrapper>
+          <button type="submit">Enviar</button>
+        </Form>
+      </ContactSection>
+
+      <SocialLinksSection>
+        <SocialLink href="https://www.instagram.com" target="_blank">
+          <FaInstagram />
+        </SocialLink>
+        <SocialLink href="https://wa.me" target="_blank">
+          <FaWhatsapp />
+        </SocialLink>
+        <SocialLink href="https://www.linkedin.com" target="_blank">
+          <FaLinkedin />
+        </SocialLink>
+      </SocialLinksSection>
+    </div>
+  );
 };
 
 export default Contact;
