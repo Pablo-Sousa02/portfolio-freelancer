@@ -86,9 +86,9 @@ const SocialLink = styled.a`
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    from_name: 'name',
+    email: 'email',
+    message: 'message',
   });
 
   const handleInputChange = (e) => {
@@ -99,7 +99,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_049qcq2', 'template_03y3c7o', e.target, 'bloOASXlIbynI1PdA')
+    emailjs.sendForm('service_049qcq2', 'template_3caexmg', e.target, 'bloOASXlIbynI1PdA')
       .then((result) => {
           alert('Mensagem enviada com sucesso!');
           setFormData({ name: '', email: '', message: '' });
