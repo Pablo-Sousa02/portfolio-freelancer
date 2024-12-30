@@ -70,7 +70,7 @@ const Footer = () => {
             <div style={{ marginTop: "20px", display: "flex", justifyContent: "center", gap: "20px" }}>
                 {/* WhatsApp */}
                 <a
-                    href="https://wa.me/123456789"
+                    href="https://wa.me/+5537998351186"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -89,7 +89,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                    href="https://instagram.com"
+                    href="https://instagram.com/pablosousa.code"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -108,7 +108,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/pablosousa22/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
