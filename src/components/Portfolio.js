@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import landing from '../assets/landing.svg';
 import site from '../assets/site.svg';
 import teste1 from '../assets/teste1.svg';
+import dentista1 from '../assets/dentista1.svg';
+import advogado1 from '../assets/advogado1.svg'
+import psicologa from '../assets/psicologa.svg'
 
 
 const PortfolioSection = styled.section`
@@ -202,19 +205,19 @@ const Portfolio = () => {
         <h2>Meu Portfólio</h2>
         <PortfolioGrid>
           <PortfolioItem>
-            <img src={landing} alt="Projeto 1" />
+            <img src={dentista1} alt="Projeto 1" />
             <Button onClick={() => handleOpenModal('Detalhes do Projeto 1')}>
               Ver mais detalhes
             </Button>
           </PortfolioItem>
           <PortfolioItem>
-            <img src={site} alt="Projeto 2" />
+            <img src={advogado1} alt="Projeto 2" />
             <Button onClick={() => handleOpenModal('Detalhes do Projeto 2')}>
               Ver mais detalhes
             </Button>
           </PortfolioItem>
           <PortfolioItem>
-            <img src={teste1} alt="Projeto 3" />
+            <img src={psicologa} alt="Projeto 3" />
             <Button onClick={() => handleOpenModal('Detalhes do Projeto 3')}>
               Ver mais detalhes
             </Button>
