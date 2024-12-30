@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo.svg';
 
+// Estilos
 const Header = styled.header`
   position: fixed;
   top: 0;
@@ -35,17 +36,24 @@ const NavLinks = styled.nav`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.9);
+    background:rgba(139, 0, 0, 0.85);
     position: absolute;
     top: 60px;
     right: 20px;
     padding: 10px;
     border-radius: 5px;
-    display: none;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(100%);
   }
 
   &.active {
-    display: flex;
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
   }
 `;
 
@@ -70,10 +78,33 @@ const Logo = styled.div`
 const BurgerMenu = styled.div`
   display: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1001;
 
   @media (max-width: 768px) {
+    display: block; 
+  }
+
+  span {
     display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+
+    &:first-child {
+      transform: ${({ menuOpen }) => (menuOpen ? 'rotate(45deg) translateY(8px)' : 'none')};
+    }
+
+    &:nth-child(2) {
+      opacity: ${({ menuOpen }) => (menuOpen ? 0 : 1)};
+    }
+
+    &:last-child {
+      transform: ${({ menuOpen }) => (menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none')};
+    }
   }
 `;
 
@@ -94,8 +125,10 @@ const Navbar = () => {
       <Logo>
         <img src={logo} alt="Logo" />
       </Logo>
-      <BurgerMenu onClick={toggleMenu}>
-        ☰
+      <BurgerMenu menuOpen={menuOpen} onClick={toggleMenu}>
+        <span />
+        <span />
+        <span />
       </BurgerMenu>
       <NavLinks className={menuOpen ? 'active' : ''}>
         <a href="#inicio">Início</a>
