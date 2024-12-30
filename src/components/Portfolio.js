@@ -183,8 +183,24 @@ const Portfolio = () => {
   const [modalContent, setModalContent] = useState(null);
   const [carrosselOffset, setCarrosselOffset] = useState(0);
 
-  const handleOpenModal = (content) => {
-    setModalContent(content);
+  // Detalhes dos projetos
+  const projectDetails = {
+    projeto1: {
+      title: "Projeto 1 - Dentista",
+      description: "Landing page criada para uma clínica odontológica, com foco em agendamento fácil e exibição de serviços.",
+    },
+    projeto2: {
+      title: "Projeto 2 - Advogado",
+      description: "Website desenvolvido para um escritório de advocacia, apresentando áreas de atuação e contato profissional.",
+    },
+    projeto3: {
+      title: "Projeto 3 - Psicóloga",
+      description: "Landing page para uma psicóloga, destacando serviços de terapia online e presencial.",
+    },
+  };
+
+  const handleOpenModal = (projectKey) => {
+    setModalContent(projectDetails[projectKey]);
   };
 
   const handleCloseModal = () => {
@@ -206,19 +222,19 @@ const Portfolio = () => {
         <PortfolioGrid>
           <PortfolioItem>
             <img src={dentista1} alt="Projeto 1" />
-            <Button onClick={() => handleOpenModal('Detalhes do Projeto 1')}>
+            <Button onClick={() => handleOpenModal('projeto1')}>
               Ver mais detalhes
             </Button>
           </PortfolioItem>
           <PortfolioItem>
             <img src={advogado1} alt="Projeto 2" />
-            <Button onClick={() => handleOpenModal('Detalhes do Projeto 2')}>
+            <Button onClick={() => handleOpenModal('projeto2')}>
               Ver mais detalhes
             </Button>
           </PortfolioItem>
           <PortfolioItem>
             <img src={psicologa} alt="Projeto 3" />
-            <Button onClick={() => handleOpenModal('Detalhes do Projeto 3')}>
+            <Button onClick={() => handleOpenModal('projeto3')}>
               Ver mais detalhes
             </Button>
           </PortfolioItem>
@@ -253,11 +269,8 @@ const Portfolio = () => {
       {modalContent && (
         <Modal>
           <ModalContent>
-            <h3>{modalContent}</h3>
-            <p>
-              Aqui você pode adicionar mais informações sobre o projeto para
-              atrair a atenção dos visitantes.
-            </p>
+            <h3>{modalContent.title}</h3>
+            <p>{modalContent.description}</p>
             <button onClick={handleCloseModal}>Fechar</button>
           </ModalContent>
         </Modal>
