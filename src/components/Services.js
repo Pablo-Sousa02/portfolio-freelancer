@@ -11,6 +11,11 @@ const fadeIn = keyframes`
   100% { opacity: 1; transform: scale(1); }
 `;
 
+const slideUp = keyframes`
+  0% { transform: translate(-50%, -40%) scale(0.8); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+`;
+
 const hoverEffect = keyframes`
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -87,7 +92,7 @@ const ServiceBox = styled.div`
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color:rgb(206, 7, 7);
+      background-color: rgb(206, 7, 7);
     }
   }
 `;
@@ -114,7 +119,7 @@ const ModalContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.8);
   background-color: #fff;
   padding: 30px;
   width: 80%;
@@ -122,7 +127,7 @@ const ModalContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  animation: ${fadeIn} 0.3s ease-out;
+  animation: ${slideUp} 0.5s ease-out forwards;
 `;
 
 const ModalCloseButton = styled.button`
@@ -147,8 +152,6 @@ const Services = () => {
     { title: "Desenvolvimento de Sites", description: "Criação de websites dinâmicos e responsivos com as melhores tecnologias." },
     { title: "Design Responsivo", description: "Layouts adaptáveis para todos os dispositivos, garantindo ótima experiência." },
     { title: "SEO Otimizado", description: "Estratégias de SEO para melhorar a visibilidade do seu site nos motores de busca." },
-    { title: "E-commerce", description: "Criação de lojas virtuais com integração de sistemas de pagamento e segurança." },
-    { title: "Consultoria Digital", description: "Aconselhamento estratégico para alavancar sua presença digital e gerar resultados." },
     { title: "Manutenção de Sites", description: "Atualização e melhorias contínuas para garantir que seu site esteja sempre otimizado." }
   ];
 
@@ -198,7 +201,7 @@ const Services = () => {
 
       {/* Modal */}
       <ModalBackground show={modalOpen} onClick={handleCloseModal}>
-        <ModalContainer>
+        <ModalContainer onClick={(e) => e.stopPropagation()}>
           <h3>{currentService?.title}</h3>
           <p>{currentService?.description}</p>
           <ModalCloseButton onClick={handleCloseModal}>Fechar</ModalCloseButton>
