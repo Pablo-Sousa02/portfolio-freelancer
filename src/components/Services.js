@@ -16,12 +16,6 @@ const slideUp = keyframes`
   100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 `;
 
-const hoverEffect = keyframes`
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-`;
-
 // Estilos
 const ServicesSection = styled.section`
   padding: 50px;

@@ -8,11 +8,11 @@ const Footer = () => {
             <nav>
                 <ul style={{ listStyle: "none", padding: 0, display: "flex", justifyContent: "center", gap: "20px" }}>
                     <li>
-                        <a 
-                            href="#inicio" 
+                        <a
+                            href="#inicio"
                             style={{
-                                color: "#fff", 
-                                textDecoration: "none", 
+                                color: "#fff",
+                                textDecoration: "none",
                                 transition: "color 0.3s ease"
                             }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#8B0000")} // Cor de hover para o link
@@ -22,11 +22,11 @@ const Footer = () => {
                         </a>
                     </li>
                     <li>
-                        <a 
-                            href="#serviços" 
+                        <a
+                            href="#serviços"
                             style={{
-                                color: "#fff", 
-                                textDecoration: "none", 
+                                color: "#fff",
+                                textDecoration: "none",
                                 transition: "color 0.3s ease"
                             }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#8B0000")} // Cor de hover para o link
@@ -36,11 +36,11 @@ const Footer = () => {
                         </a>
                     </li>
                     <li>
-                        <a 
-                            href="#portfolio" 
+                        <a
+                            href="#portfolio"
                             style={{
-                                color: "#fff", 
-                                textDecoration: "none", 
+                                color: "#fff",
+                                textDecoration: "none",
                                 transition: "color 0.3s ease"
                             }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#8B0000")} // Cor de hover para o link
@@ -50,11 +50,11 @@ const Footer = () => {
                         </a>
                     </li>
                     <li>
-                        <a 
-                            href="#contato" 
+                        <a
+                            href="#contato"
                             style={{
-                                color: "#fff", 
-                                textDecoration: "none", 
+                                color: "#fff",
+                                textDecoration: "none",
                                 transition: "color 0.3s ease"
                             }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#8B0000")} // Cor de hover para o link
@@ -68,7 +68,6 @@ const Footer = () => {
 
             {/* Links das Redes Sociais */}
             <div style={{ marginTop: "20px", display: "flex", justifyContent: "center", gap: "20px" }}>
-                {/* WhatsApp */}
                 <a
                     href="https://wa.me/+5537998351186"
                     target="_blank"
@@ -82,7 +81,7 @@ const Footer = () => {
                         fontSize: "20px",
                         transition: "color 0.3s ease"
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#25D366")} 
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#25D366")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
                 >
                     <FaWhatsapp /> WhatsApp
@@ -125,6 +124,19 @@ const Footer = () => {
                 >
                     <FaLinkedin /> Linkedin
                 </a>
+            </div>
+
+            {/* Mapa */}
+            <div style={{ marginTop: "20px", width: "100%", height: "300px", position: "relative" }}>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15042.689384213634!2d-44.68683874431014!3d-19.512727658539156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa70b16a1d117f1%3A0x66f417428e8f2a95!2sMaravilhas%2C%20State%20of%20Minas%20Gerais%2C%2035666-000!5e0!3m2!1sen!2sbr!4v1736174013531!5m2!1sen!2sbr" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"
+                    width="100%"
+                    height="100%"
+                    style={{ border: "0" }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    title="Minha localização"
+                ></iframe>
             </div>
 
             {/* Texto de Direitos Reservados */}
